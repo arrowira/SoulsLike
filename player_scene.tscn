@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu87v5rw1uxft"]
+
+[ext_resource type="Script" path="res://tdk.gd" id="1_4v7jy"]
+[ext_resource type="Script" path="res://player.gd" id="2_i27og"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4d8bg"]
+height = 2.98
+
+[sub_resource type="SphereMesh" id="SphereMesh_70mqn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_65edt"]
+
+[node name="player_scene" type="Node3D"]
+script = ExtResource("1_4v7jy")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("2_i27og")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_4d8bg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0517681, 0.723191, -0.404443)
+mesh = SubResource("SphereMesh_70mqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_65edt")
+
+[node name="camOrigin" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.743106, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/camOrigin"]
+spring_length = 4.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/camOrigin/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.04493)
