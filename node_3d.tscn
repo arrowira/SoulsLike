@@ -1,10 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cu87v5rw1uxft"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_7trs7"]
+[ext_resource type="Script" path="res://tdk.gd" id="1_4v7jy"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-texture = SubResource("MeshTexture_7trs7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Sprite3D"]
+script = ExtResource("1_4v7jy")
