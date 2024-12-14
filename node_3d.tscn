@@ -6,3 +6,5 @@
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture = SubResource("MeshTexture_7trs7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sprite3D"]
