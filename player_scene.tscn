@@ -32,14 +32,10 @@ margin = 0.5
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/camOriginLeftRight/camOrigin/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.04493)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 mesh = SubResource("CapsuleMesh_4d8bg")
-skeleton = NodePath("../CharacterBody3D")
 script = ExtResource("3_b4rb4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0517681, 0.723191, -0.404443)
 mesh = SubResource("SphereMesh_70mqn")
-
-[connection signal="cbPos" from="CharacterBody3D" to="MeshInstance3D" method="_on_character_body_3d_cb_pos"]
-[connection signal="cbRot" from="CharacterBody3D" to="MeshInstance3D" method="_on_character_body_3d_cb_rot"]
